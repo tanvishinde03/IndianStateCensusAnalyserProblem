@@ -4,21 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IndianStateCensusAnalyserProblemE
+namespace IndianStateCensusAnalyserProblem
 {
     public class IndianStateCensusAnalyser
     {
         public class IndianStateCensusException : Exception
+    {
+        public enum IndianStateExceptionType
         {
-            public enum IndianStateExceptionType
-            {
-                CSV_FILE_IS_INCORRECT
+            CSV_FILE_IS_INCORRECT,
+            FILE_TYPE_INCORRECT
             }
-            public IndianStateExceptionType indianStateExceptionType;
-            public IndianStateCensusException(IndianStateExceptionType indianStateExceptionType, string message) : base(message)
-            {
-                this.indianStateExceptionType = indianStateExceptionType;
-            }
+        public IndianStateExceptionType indianStateExceptionType;
+        public IndianStateCensusException(IndianStateExceptionType indianStateExceptionType, string message) : base(message)
+        {
+            this.indianStateExceptionType = indianStateExceptionType;
         }
+    }
     }
 }
