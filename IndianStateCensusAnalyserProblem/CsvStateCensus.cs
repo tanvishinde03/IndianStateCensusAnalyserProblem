@@ -11,7 +11,7 @@ namespace IndianStateCensusAnalyserProblem
 {
     public class CsvStateCensus
     {
-        public void ReadStateCensusData(String filePath)
+        public int ReadStateCensusData(String filePath)
         {
             using (var reader = new StreamReader(filePath))
             {
@@ -22,6 +22,7 @@ namespace IndianStateCensusAnalyserProblem
                     {
                         Console.WriteLine($"{record.State} {record.Population} {record.AreaInSqKm} {record.DensityPerSqKm}");
                     }
+                    return records.Count() - 1;
                 }
             }
         }

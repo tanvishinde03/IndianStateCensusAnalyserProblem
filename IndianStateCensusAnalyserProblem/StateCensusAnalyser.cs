@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace IndianStateCensusAnalyserProblem
 {
-    public class CsvStateCode
+    public class StateCensusAnalyser
     {
-        public int ReadStateCodeData(String filePath)
+        public int ReadStateCensusData(string filePath)
         {
             using (var reader = new StreamReader(filePath))
             {
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
-                    var records = csv.GetRecords<StateCodeModel>().ToList();
+                    var records = csv.GetRecords<StateCensusModel>().ToList();
                     foreach (var record in records)
                     {
-                        //Console.WriteLine($"{record.SrNo} {record.StateName} {record.TIN} {record.StateCode}");
+                        //Console.WriteLine($"{record.State} {record.Population} {record.AreaInSqKm} {record.DensityPerSqKm}");
                         Console.WriteLine(reader);
                     }
                     return records.Count() - 1;
@@ -29,3 +29,4 @@ namespace IndianStateCensusAnalyserProblem
         }
     }
 }
+
